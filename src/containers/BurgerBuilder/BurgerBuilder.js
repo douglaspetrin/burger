@@ -34,7 +34,6 @@ class BurgerBuilder extends Component {
 
     updatePurchaseState (ingredients) {
 
-        
         const sum = Object.keys(ingredients) //first create strigns and than map to get the values of each one
             .map(igKey => {
                 return ingredients[igKey]; //it is returning each ingrediente, ex: salad, bacon, cheese, meat.
@@ -45,6 +44,7 @@ class BurgerBuilder extends Component {
             }, 0); 
             this.setState({purchasable: sum > 0});
     }
+
 
     addIngredientsHandler = (type) => {
         const oldCount = this.state.ingredients[type];
@@ -78,7 +78,7 @@ class BurgerBuilder extends Component {
         
         const priceDeduction = INGREDIENT_PRICES[type];
         const oldPrice = this.state.totalPrice;
-        const newPrice = oldPrice + priceDeduction;
+        const newPrice = oldPrice - priceDeduction;
 
         this.setState({ totalPrice: newPrice, ingredients: updatedIngredients});
         this.updatePurchaseState(updatedIngredients);
