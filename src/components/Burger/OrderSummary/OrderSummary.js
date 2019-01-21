@@ -18,6 +18,8 @@ const orderSummary = (props) => {
             <p>A delicious burguer w/ the following ingredients:</p>
             <ul>{ingredientSummary}</ul>
             <p>Continue to checkout</p>
+            <button onClick={props.modalClosed}>CANCEL</button>
+            <button>CONTINUE</button>
         </Aux>
     ); 
 };
