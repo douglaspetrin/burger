@@ -12,6 +12,7 @@ const toolbar = (props) => (
         />
         
         <div onClick={props.click}><a href="#">MENU</a></div>
+        <div onClick={props.abreFecha}><a href="#">Abre/Fecha</a></div>
         <div className={classes.Logo}>
             <Logo />
         </div>
