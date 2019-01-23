@@ -21,6 +21,7 @@ const sideDrawer = (props) => {
                 </div>
                 <nav>
                     <NavigationItems />
+                    <p onClick={props.sair}>Sair</p>
                 </nav>
             </div>
         </Aux>
