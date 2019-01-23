@@ -17,8 +17,15 @@ class Layout extends Component {
         this.setState ({showSideDrawer: true});
     }
 
-    sideDrawerToggleHandler = () => {
+    sideDrawerToggleHandlerOld = () => {
         this.setState({showSideDrawer: !this.state.showSideDrawer})
+    }
+
+
+    sideDrawerToggleHandler = () => {
+        this.setState( ( prevState ) => {
+            return { showSideDrawer: !prevState.showSideDrawer};
+        } );
     }
 
     render () {
@@ -29,12 +36,14 @@ class Layout extends Component {
                 drawerToggleClicked={this.sideDrawerOpenHandler}
                 chamaFun={this.sideDrawerOpenHandler}
                 abreFecha={this.sideDrawerToggleHandler}
+                vai={this.sideDrawerToggleHandler}
                 />
                 <SideDrawer 
                     open={this.state.showSideDrawer}
                     closed={this.sideDrawerClosedHandler}
                     sair={this.sideDrawerClosedHandler}
-                    abreFecha={this.sideDrawerToggleHandler}
+                    abreFecha={this.sideDrawerToggleHandlerOld}
+                    
                     
                     />
                 <main className={classes.Content}>

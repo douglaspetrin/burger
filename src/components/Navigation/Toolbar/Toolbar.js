@@ -9,6 +9,8 @@ const toolbar = (props) => (
         <DrawerToggle 
         clicked={props.drawerToggleClicked}
         clicado={props.chamaFun}
+        newToggleHandler={props.vai}
+        
         />
         
         <div onClick={props.click}><a href="#">MENU</a></div>
