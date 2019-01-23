@@ -1,7 +1,7 @@
 .SideDrawer {
     position: fixed;
     width: 280px;
-    max-width: 70px;
+    max-width: 70%;
     height: 100%;
     left: 0;
     top: 0;
@@ -10,6 +10,7 @@
     padding: 32px 16px; /*top to bottom and left to right*/
     box-sizing: border-box;
     transition: transform 0.3s ease-out;
+
 }
 
 /* for devices bigger than 500px */
