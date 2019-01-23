@@ -17,6 +17,10 @@
     height: 100%;
 }
 
+.Toolbar a {
+    color: white;
+}
+
 .Logo {
     height: 80%;
 }

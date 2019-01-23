@@ -13,10 +13,16 @@ class Layout extends Component {
         this.setState ({showSideDrawer: false});
     }
 
+    sideDrawerOpenHandler = () => {
+        this.setState ({showSideDrawer: true});
+    }
+
     render () {
         return (
             <Aux>
-                <Toolbar />
+                <Toolbar 
+                click={this.sideDrawerOpenHandler}/> 
+                
                 <SideDrawer 
                     open={this.state.showSideDrawer}
                     closed={this.sideDrawerClosedHandler}/>
@@ -29,3 +35,21 @@ class Layout extends Component {
 }
 
 export default Layout;
+
+/*
+Layout.js
+                <Toolbar 
+                click={this.sideDrawerOpenHandler}/>
+
+                Call the function sideDrawerOpenHandler
+--
+
+Toolbar.js
+
+                <div onClick={props.click}>MENU</div>
+                Pass the props click to the Toolbar component which is inside the Layout comp.
+
+
+
+
+*/
