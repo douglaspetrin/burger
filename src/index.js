@@ -7,8 +7,8 @@ import axios from 'axios';
 
 
 // Axios Config
-axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
-axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
+//axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
+//axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 
