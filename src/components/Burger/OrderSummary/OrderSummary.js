@@ -5,8 +5,10 @@ import Button from '../../UI/Button/Button';
 
 
 class OrderSummary extends Component {
+    
+    // this could be a functional component, does not have to be a class component
     componentWillUpdate() {
-        console.log('opa');
+        console.log('ordersummary WillUpdate');
     }
 
     render () {

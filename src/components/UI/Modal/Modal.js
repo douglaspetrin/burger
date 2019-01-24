@@ -7,7 +7,11 @@ import Backdrop from '../Backdrop/Backdrop';
 class Modal extends Component {
     
     shouldComponentUpdate (nextProps, nextState) {
-        
+        return nextProps.show !== this.props.show;
+    }
+
+    componentWillUpdate () {
+        console.log('modal WillUpdate')
     }
 
     render () {
@@ -28,3 +32,6 @@ class Modal extends Component {
 }
  
 export default Modal;
+
+// as OrderSummary component is wrapped by Modal component and Modal component is now with shouldComponentUpdate,
+//order summary and modal just update when I click on "Order Now" button
