@@ -20,3 +20,4 @@ export default App;
 
 // containers -> stateful components (class)
 // components -> stateless components (ex: functions)
+// start a new branch 'blog'
