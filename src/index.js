@@ -5,6 +5,15 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
 
+
+// Axios Config
+axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
+axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+
+// Interceptors 
+
 axios.interceptors.request.use(request => {
     console.log(request);
     return request //we need to return request otherwise we are blocking the request
@@ -20,6 +29,13 @@ axios.interceptors.response.use(response => {
     console.log(error);
     return Promise.reject(error);
 })
+
+
+// TO GET RID OF INTERCEPTORS
+
+// var myInterceptor = axios.interceptors.request.use(function () {/*...*/});
+// axios.interceptors.request.eject(myInterceptor);
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
