@@ -23,7 +23,7 @@ export default App;
 // start a new branch 'blog'
 
 
-<section>
+{/* <section>
 <FullPost 
 id={this.state.selectedPostId}
 title={this.state.selectedPostId}
@@ -31,4 +31,4 @@ title={this.state.selectedPostId}
 </section>
 <section>
 <NewPost />
-</section>
+</section> */}
