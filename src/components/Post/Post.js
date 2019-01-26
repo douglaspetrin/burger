@@ -3,9 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import classes from './Post.module.css';
 
-const post = (props) => {
-    console.log(props);
-    return (
+const post = (props) => (
     <article className={classes.Post} onClick={props.clicked}>
         <h1>{props.title}</h1>
         <div className={classes.Info}>
@@ -13,8 +11,7 @@ const post = (props) => {
         </div>
     </article>
     );
-};
 
-export default withRouter(post);
+export default post;
 
 // withRouter is a HOC
