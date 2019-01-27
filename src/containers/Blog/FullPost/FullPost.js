@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from './FullPost.module.css';
-import axios from  '../../axios';
+import axios from  '../../../axios';
 
 class FullPost extends Component {
     state = {
