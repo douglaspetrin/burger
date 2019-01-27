@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classes from './Blog.module.css';
 import Posts from '../Blog/Posts/Posts';
 import NewPost from './NewPost/NewPost';
-import { Route, Link, withRouter } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 
 class Blog extends Component {
@@ -12,14 +12,19 @@ class Blog extends Component {
                 <header>
                     <nav>
                         <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/new-post">New Post</Link></li>
-                            <li><Link to={{
-                                pathname: this.props.match.url + '/new-post',
+                            <li><NavLink 
+                            to="/" 
+                            exact
+                            activeClassName="my-active"
+                            activeStyle={{
+                                color: 'blue',
+                                textDecoration: 'underline'}}>Home</NavLink></li>
+                            <li><NavLink to={{
+                                pathname: '/new-post',
                                 hash: '#submit',
                                 search: '?quick-submit=true'
 
-                            }}>New Post</Link></li>
+                            }} exact>New Post</NavLink></li>
                             
                         </ul>
                     </nav>
@@ -32,4 +37,4 @@ class Blog extends Component {
     }
 }
 
-export default withRouter(Blog);
+export default Blog;
