@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import classes from './NewPost.module.css';
 import axios from '../../../axios';
+import { Redirect } from 'react-router-dom';
 
 class NewPost extends Component {
     state = {
         title: '',
         body: '',
-        author: 'Doug'
+        author: 'Doug',
+        submitted: false
     }
 
     componentDidMount () {
@@ -23,12 +25,14 @@ class NewPost extends Component {
         axios.post('/posts', data)
             .then(response => {
                 console.log(response);
+                this.setState({submitted: true});
         });
     }
 
     render () {
         return (
             <div className={classes.NewPost}>
+                {this.state.submitted ? <Redirect to="/posts" /> : null} 
                 <h1>Add a Post</h1>
                 <label>Title</label>
                 <input type="text" value={this.state.title} onChange={(event) => this.setState({title: event.target.value})} />
@@ -40,6 +44,7 @@ class NewPost extends Component {
                     <option value="Manu">Manu</option>
                 </select>
                 <button onClick={this.postDataHandler}>Add Post</button>
+                
             </div>
         );
     }
