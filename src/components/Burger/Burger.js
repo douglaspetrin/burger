@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from './Burger.module.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient.js';
-import { withRouter } from 'react-router-dom';
 
 
 const burger = (props) => {
@@ -30,6 +29,6 @@ const burger = (props) => {
     );
 };
  
-export default withRouter(burger);
+export default burger;
 
 // use curly braces {} to be able to use js code bfore returning JSX
