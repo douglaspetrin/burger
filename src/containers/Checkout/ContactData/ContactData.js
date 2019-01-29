@@ -96,8 +96,19 @@ class ContactData extends Component {
 
     }
 
-    inputChangeHandler = (event) => {
+    inputChangeHandler = (event, inputIdentifier) => {
         console.log(event.target.value);
+        const updatedOrderForm = {
+            ...this.state.orderForm //cloning the orderForm
+        };
+
+        const updatedFormElement = {
+            ...updatedOrderForm[inputIdentifier] //cloning deeply what is inside "elementType"
+        };
+
+        updatedFormElement.value = event.target.value;
+        updatedOrderForm[inputIdentifier] = updatedFormElement;
+        this.setState({orderForm: updatedOrderForm});
     }
 
     render() {
@@ -117,7 +128,7 @@ class ContactData extends Component {
                 elementType={formElement.config.elementType} 
                 elementConfig={formElement.config.elementConfig}
                 value={formElement.config.value}
-                changed={this.inputChangeHandler}
+                changed={(event) => this.inputChangeHandler(event, formElement.id)}
                 />
             ))}
             <Button btnType="Success" clicked={this.orderHandler}>ORDER</Button>
