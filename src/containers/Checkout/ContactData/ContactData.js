@@ -126,19 +126,19 @@ class ContactData extends Component {
     }
 
     checkValidity(value, rules) {
-        let isValid = false;
+        let isValid = true;
 
         if (rules.required) {
             // rules.required means it is true
-            isValid = value.trim() !== ''; //trim() removes empty spaces, comparing if is not equal to empty string ''
+            isValid = value.trim() !== '' && isValid; //trim() removes empty spaces, comparing if is not equal to empty string ''
         }
 
         if (rules.minLength) {
-            isValid = value.length >= rules.minLength
+            isValid = value.length >= rules.minLength && isValid
         }
 
         if (rules.maxLength) {
-            isValid = value.length <= rules.maxLength
+            isValid = value.length <= rules.maxLength && isValid
         }
 
         return isValid; // true or false
@@ -178,6 +178,7 @@ class ContactData extends Component {
                 elementType={formElement.config.elementType} 
                 elementConfig={formElement.config.elementConfig}
                 value={formElement.config.value}
+                invalid={formElement.config}
                 changed={(event) => this.inputChangeHandler(event, formElement.id)}
                 />
             ))}
