@@ -10,7 +10,9 @@ import reducer from './store/reducer';
 import { Provider } from 'react-redux';
 
 
-const store = createStore(reducer);
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+const store = createStore(reducer, devTools);
 
 const app = (
     <Provider store={store}>
