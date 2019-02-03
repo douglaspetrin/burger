@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
+import {updateObject} from '../utility';
 
 const initialState = {
     ingredients: null,
@@ -17,14 +18,13 @@ const reducer = ( state = initialState, action ) => {
 
     switch ( action.type ) {
             case actionTypes.ADD_INGREDIENT:
-                return {
-                    ...state,
-                    ingredients: {
-                        ...state.ingredients, // now we are copying it deeply
-                        [action.ingredientName]: state.ingredients[action.ingredientName] + 1
-                    },
+                const updatedIngredient = { [action.ingredientName]: state.ingredients[action.ingredientName] + 1 };
+                const updatedIngredients = updateObject(state.ingredients, updatedIngredient)
+                const updatedState = {
+                    ingredients: updatedIngredients,
                     totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
-                };
+                }
+                return updateObject(state, updatedState);
             
                     
             case actionTypes.REMOVE_INGREDIENT:
