@@ -28,18 +28,16 @@ const reducer = ( state = initialState, action ) => {
             
                     
             case actionTypes.REMOVE_INGREDIENT:
-                return {
-                    ...state,
-                    ingredients: {
-                        ...state.ingredients, // now we are copying it deeply
-                        [action.ingredientName]: state.ingredients[action.ingredientName] - 1
-                    },
+                const updatedIng = { [action.ingredientName]: state.ingredients[action.ingredientName] - 1 };
+                const updatedIngs = updateObject(state.ingredients, updatedIng)
+                const updatedSt = {
+                    ingredients: updatedIngs,
                     totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName]
-                    };
+                }
+                return updateObject(state, updatedSt);
                     
             case actionTypes.SET_INGREDIENTS:
-                return {
-                    ...state,
+                return updateObject(state, {
                     ingredients: {
                         salad: action.ingredients.salad,
                         bacon: action.ingredients.bacon,
@@ -49,13 +47,11 @@ const reducer = ( state = initialState, action ) => {
                     totalPrice: 4,
                     //ingredients: action.ingredients,
                     error: false
-                    };
+                    });
                     
             case actionTypes.FETCH_INGREDIENTS_FAILED:
-                return {
-                    ...state,
-                    error: true
-                    };
+                return updateObject(state, { error: true });
+
             default:
                     return state;
     }
