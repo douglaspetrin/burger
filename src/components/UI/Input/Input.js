@@ -9,7 +9,7 @@ const input = (props) => {
 
     if (props.invalid && props.shouldValidate && props.touched) {
         inputClasses.push(classes.Invalid);
-        validationError = <p className={classes.ValidationError}>Error: {props.errorMessage}</p>; //not showing error msg
+        //validationError = <p className={classes.ValidationError}> {props.errorMessage}</p>; //not showing error msg
     }
 
     // join(' ') to concat white space
