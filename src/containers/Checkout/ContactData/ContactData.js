@@ -108,7 +108,7 @@ class ContactData extends Component {
 // using preventDefault() to avoid to send a request as it is set by default
     orderHandler = (event) => {
         event.preventDefault();
-        console.log(this.props.ings);
+        //console.log(this.props.ings);
 
          const formData = {};
 
@@ -128,11 +128,11 @@ class ContactData extends Component {
     }
 
     inputChangeHandler = (event, inputIdentifier) => {
-        console.log(event.target.value);
+        //console.log(event.target.value);
 
         const updatedFormElement = updateObject(this.state.orderForm[inputIdentifier], {
             value: event.target.value,
-            valid: checkValidity(event.target.value, this.state.order[inputIdentifier].validation),
+            valid: checkValidity(event.target.value, this.state.orderForm[inputIdentifier].validation),
             touched: true
         }); 
 
@@ -145,10 +145,10 @@ class ContactData extends Component {
         for(let inputIdentifier in updatedOrderForm) {
             formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
             this.setState({formIsValid: formIsValid});
-            console.log(formIsValid);
+            //console.log(formIsValid);
         }
 
-        console.log(updatedFormElement);
+        //console.log(updatedFormElement);
         this.setState({orderForm: updatedOrderForm});
     }
 

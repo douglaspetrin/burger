@@ -4,7 +4,7 @@ import BurgerIngredient from './BurgerIngredient/BurgerIngredient.js';
 
 
 const burger = (props) => {
-    console.log(props);
+    // console.log(props);
     let transformedIngredients = Object.keys(props.ingredients) //now it is an array and I can use .map()
     .map(igKey => {
         return [...Array(props.ingredients[igKey])].map((_, i) => {
@@ -19,7 +19,7 @@ const burger = (props) => {
         transformedIngredients = <p>Please start adding ingredients</p>
     }
 
-    console.log(transformedIngredients);
+    //console.log(transformedIngredients);
     return (
         <div className={classes.Burger}>
             <BurgerIngredient type="bread-top"/>

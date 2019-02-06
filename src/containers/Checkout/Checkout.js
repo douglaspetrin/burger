@@ -4,8 +4,6 @@ import { Route, Redirect } from 'react-router-dom';
 import ContactData from '../Checkout/ContactData/ContactData';
 import { connect } from 'react-redux';
 
-import * as actions from '../../store/actions/index';
-
 class Checkout extends Component {
 
     checkoutCancelledHandler = () => {
